@@ -45,3 +45,9 @@ def delete_program(cluster_id):
     cluster_program_controller.delete(cluster_id)
     return make_response("Cluster delete", HTTPStatus.OK)
 
+
+@clusters_programs.get('/get_subject/<int:cluster_program_id>')
+def get_subject(cluster_program_id):
+    return make_response(jsonify(cluster_program_controller.get_subjects_in_cluster_program(cluster_program_id)))
+
+

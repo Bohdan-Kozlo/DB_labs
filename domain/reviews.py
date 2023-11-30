@@ -19,7 +19,7 @@ class Reviews(db.Model):
         }
 
     @staticmethod
-    def crate_from_dto(dto_dict):
+    def create_from_dto(dto_dict):
         obj = Reviews(
             cluster_program_id=dto_dict.get("cluster_program_id"),
             group_id=dto_dict.get("group_id"),

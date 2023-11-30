@@ -27,7 +27,7 @@ def create_speaker():
 @guest_speakers.put('/<int:speaker_id>')
 def update_speaker(speaker_id):
     context = request.get_json()
-    guest_speaker = GuestSpeaker.put_into_dto(context)
+    guest_speaker = GuestSpeaker.create_from_dto(context)
     guest_speaker_controller.update(speaker_id, guest_speaker)
     return make_response(jsonify("Speaker update"), HTTPStatus.OK)
 

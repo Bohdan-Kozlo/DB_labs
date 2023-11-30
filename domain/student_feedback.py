@@ -7,7 +7,7 @@ class StudentFeedback(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     text = db.Column(db.String(1000), nullable=False)
     rating = db.Column(db.String(5), nullable=False)
-    date = db.Column(db.Date, nullable=False)
+    date = db.Column(db.String, nullable=False)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
     classes_id = db.Column(db.Integer, db.ForeignKey('classes.id'), nullable=True)
     reviews_id = db.Column(db.Integer, db.ForeignKey('reviews.id'), nullable=True)
@@ -27,11 +27,11 @@ class StudentFeedback(db.Model):
     def create_from_dto(dto_dict):
         obj = StudentFeedback(
             text=dto_dict.get("text"),
-            date=dto_dict.get("date "),
-            rating=dto_dict.get("rating "),
-            student_id=dto_dict.get("student_id "),
-            classes_id=dto_dict.get("classes_id "),
-            reviews_id=dto_dict.get("reviews_id ")
+            date=dto_dict.get("date"),
+            rating=dto_dict.get("rating"),
+            student_id=dto_dict.get("student_id"),
+            classes_id=dto_dict.get("classes_id"),
+            reviews_id=dto_dict.get("reviews_id")
         )
         return obj
 

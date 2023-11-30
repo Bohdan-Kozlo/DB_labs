@@ -44,3 +44,8 @@ def patch_program(group_id):
 def delete_group(group_id):
     group_controller.delete(group_id)
     make_response(jsonify("Group delete"), HTTPStatus.OK)
+
+
+@groups.get('/students/<int:group_id>')
+def get_students(group_id):
+    return make_response(jsonify(group_controller.get_students_in_group(group_id)), HTTPStatus.OK)

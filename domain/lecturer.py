@@ -11,6 +11,7 @@ class Lecturer(db.Model):
     email = db.Column(db.String(45), nullable=False)
     classes_lecturers = db.relationship('ClassesLecturer', back_populates='lecturer')
 
+
     def put_into_dto(self):
         return {
             "id": self.id,

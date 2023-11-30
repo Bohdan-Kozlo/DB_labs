@@ -27,7 +27,7 @@ def create_review():
 @reviews.put('/<int:review_id>')
 def update_review(review_id):
     context = request.get_json()
-    review = Reviews.put_into_dto(context)
+    review = Reviews.create_from_dto(context)
     reviews_controller.update(review_id, review)
     return make_response(jsonify("Review updated"), HTTPStatus.OK)
 

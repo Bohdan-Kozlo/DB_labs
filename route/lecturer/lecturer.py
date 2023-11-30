@@ -28,7 +28,7 @@ def create_lecturer():
 @lecturers.put('/<int:lecturer_id>')
 def update_lecturer(lecturer_id):
     context = request.get_json()
-    lecturer = Lecturer.put_into_dto(context)
+    lecturer = Lecturer.create_from_dto(context)
     lecturer_controller.update(lecturer_id, lecturer)
     return make_response(jsonify("Lecturer update"), HTTPStatus.OK)
 
@@ -44,3 +44,8 @@ def patch_lecturer(lecturer_id):
 def delete_lecturer(lecturer_id):
     lecturer_controller.delete(lecturer_id)
     return make_response(jsonify("Delete lecturer"), HTTPStatus.OK)
+
+
+@lecturers.get('/get_classes/<int:lecturer_id>')
+def get_classes(lecturer_id):
+    return make_response(jsonify(lecturer_controller.get_classes_for_lecturer(lecturer_id)), HTTPStatus.OK)

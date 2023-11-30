@@ -25,6 +25,20 @@ def update_classes_lecturer(classes_lecturers_id):
     context = request.get_json()
     classes_lecturer = ClassesLecturer.create_from_dto(context)
     classes_lecturer_controller.update(classes_lecturers_id, classes_lecturer)
-    return make_response()
+    return make_response(jsonify("Classes lecturer update"), HTTPStatus.OK)
+
+
+@classes_lecturers.patch('/<int:classes_lecturers_id>')
+def patch_classes_lecturer(classes_lecturers_id):
+    context = request.get_json()
+    classes_lecturer_controller.patch(classes_lecturers_id, context)
+    return make_response(jsonify("Classes lecture update"), HTTPStatus.OK)
+
+
+@classes_lecturers.delete('/<int:classes_lecturers_id>')
+def delete_classes_lecturer(classes_lecturers_id):
+    classes_lecturer_controller.delete(classes_lecturers_id)
+    return make_response(jsonify("Update classes lecturer"), HTTPStatus.OK)
+
 
 

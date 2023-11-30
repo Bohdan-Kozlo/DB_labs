@@ -6,3 +6,6 @@ class GroupController(GeneralController):
 
     _service = group_service
 
+    def get_students_in_group(self, group_id):
+        return group_service.get_students_in_group(group_id)
+
