@@ -7,7 +7,7 @@ class StudentFeedback(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     text = db.Column(db.String(1000), nullable=False)
     rating = db.Column(db.String(5), nullable=False)
-    date = db.Column(db.String, nullable=False)
+    date = db.Column(db.String(50), nullable=False)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
     classes_id = db.Column(db.Integer, db.ForeignKey('classes.id'), nullable=True)
     reviews_id = db.Column(db.Integer, db.ForeignKey('reviews.id'), nullable=True)

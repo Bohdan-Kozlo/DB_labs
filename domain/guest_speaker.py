@@ -21,7 +21,7 @@ class GuestSpeaker(db.Model):
         }
 
     @staticmethod
-    def crate_from_dto(dto_dict):
+    def create_from_dto(dto_dict):
         obj = GuestSpeaker(
             first_name=dto_dict.get("first_name"),
             last_name=dto_dict.get("last_name"),

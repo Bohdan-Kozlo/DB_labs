@@ -44,3 +44,8 @@ def patch_classe(classes_id):
 def delete_classe(classes_id):
     classes_controller.delete(classes_id)
     return make_response(jsonify("Delete classe"), HTTPStatus.OK)
+
+
+@classes.get('/get_feedback/<int:classes_id>')
+def get_feedback(classes_id):
+    return make_response(jsonify(classes_controller.get_feedback_for_class(classes_id)), HTTPStatus.OK)

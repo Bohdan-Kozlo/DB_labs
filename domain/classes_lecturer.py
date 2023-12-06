@@ -8,7 +8,6 @@ class ClassesLecturer(db.Model):
 
     class_id = db.Column(db.Integer, db.ForeignKey('classes.id'), nullable=False)
     lecturer_id = db.Column(db.Integer, db.ForeignKey('lecturer.id'), nullable=False)
-
     lecturer = db.relationship('Lecturer', back_populates='classes_lecturers')
 
     def put_into_dto(self):

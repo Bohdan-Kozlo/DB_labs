@@ -44,3 +44,8 @@ def patch_subject(subject_id):
 def delete_subject(subject_id):
     subject_controller.delete(subject_id)
     return make_response(jsonify('Subject delete'), HTTPStatus.OK)
+
+
+@subjects.get('/get_classes/<int:subject_id>')
+def get_classes(subject_id):
+    return make_response(jsonify(subject_controller.get_classes_for_subject(subject_id)), HTTPStatus.OK)

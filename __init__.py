@@ -26,14 +26,14 @@ def create_app(test_config=None):
     from src.route.lecturer.lecturer import lecturers
     from src.domain.guest_speaker import GuestSpeaker
     from src.route.guest_speaker.guest_speaker import guest_speakers
-    from src.domain.classes_lecturer import ClassesLecturer
-    from src.route.classes_lecturer.classes_lecturer import classes_lecturers
     from src.route.reviews.reviews import reviews
     from src.route.student_feedback.student_feedback import student_feedback
+    from src.domain.classes_lecturer import ClassesLecturer
+    from src.route.classe_lecturer.classe_lecturer import classes_lecturers
 
 
     app.config['SECRET_KEY'] = 'dev'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:user@localhost/LabsWork'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:user@localhost/labs5'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     if test_config:
@@ -53,9 +53,9 @@ def create_app(test_config=None):
     app.register_blueprint(classes)
     app.register_blueprint(lecturers)
     app.register_blueprint(guest_speakers)
-    app.register_blueprint(classes_lecturers)
     app.register_blueprint(reviews)
     app.register_blueprint(student_feedback)
+    app.register_blueprint(classes_lecturers)
 
     return app
 
